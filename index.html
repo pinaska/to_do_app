@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="styles.css">
+  <title>To-do list</title>
+</head>
+<body>
+  <div class="list-editor">
+    <h1 class="main-title">Do not forget.</h1>
+    <input type="text" name="new-item" id="item-input" />
+    <button id="add-button">Add an item</button>
+    <ul class="my-list">
+      <li>
+        <span>first item I need to do </span>
+        <a href="#" class="complete">[done]</a>
+        <i class="far fa-trash-alt delete"></i>
+      </li>
+    </ul>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
