@@ -2,6 +2,7 @@ $(document).ready(function() {
 //adding the item, tbc.
 $('#add-button').on("click", addItem);
 $('ul').on("click", "a", completeItem);
+// $('ul').on("click", "a", undoItem);
 $('ul').on("click", '.fa-trash-alt',deleteItem);
   // event.preventDefault();
 // add item
@@ -12,7 +13,7 @@ function addItem(){
     alert("You did not put any task");
   }
   else {
-  $('.my-list').append('<li>' + '<span>' + inputValue + '</span>' +' <a href="#" class="complete">[done]</a>' + ' <i class="far fa-trash-alt complete"></i>' + '</li>');
+  $('.my-list').append('<li>' + ' <a href="#" class="complete">[done]</a>' + ' <span>' + inputValue + '</span>' + ' <i class="far fa-trash-alt complete"></i>' + '</li>');
   $('#item-input').val('');
   }
 }
@@ -21,7 +22,13 @@ function addItem(){
 function completeItem(){
   //adding class on span element and icon, when a is clicked, how to make it only span?
   $(this).siblings('span').toggleClass('done');
+  // $(this).html('[undone]');
 }
+//make [undone][done] again
+// function undoItem(){
+//   $(this).addClass('.undone');
+//     $('.undone').html('[done]');
+// }
 
 // delete item
 function deleteItem(){

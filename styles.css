@@ -46,8 +46,12 @@ table {
   outline: none;
 }
 h1{
-  font-size: 30px;
+  font-size: 60px;
   padding: 30px;
+	font-weight: bolder;
+	color: rgb(118, 119, 119);
+	text-transform: lowercase;
+	letter-spacing: 0.2rem;
 }
 
 a {
@@ -58,31 +62,38 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
+	font-family: 'Roboto', sans-serif;
 }
 .list-editor{
-  background-color: skyblue;
+  background-color: #F3F3F3;
   padding: 30px;
   margin-top: 50px;
 }
 .my-list{
+	/* border:10px, solid, #ff9100; */
   padding-top: 10px;
 }
 li{
   padding: 10px 0;
+	font-family: 'Roboto', serif;
 }
 
 button{
 display: inline-block;
-background-color:#fc999b;
+background-color:#bf360c;
 color:#ffffff;
-border-radius: 5px;
+border-radius: 25px;
 text-align:center;
 margin-top:2px;
 padding: 5px 15px;
 }
+button:hover{
+	background-color: #ff9e80;
+	color: black;
+}
 
 .fa-trash-alt{
-  color: #eee;
+  color: #f4511e;
   float: right;
   cursor: pointer;
 }
