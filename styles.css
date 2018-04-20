@@ -74,11 +74,15 @@ body{
   padding-top: 10px;
 }
 li{
+	display: flex;
+  justify-content: space-between;
   padding: 10px 0;
 	font-family: 'Roboto', serif;
 }
 
+
 button{
+border: 0px;
 display: inline-block;
 background-color:#bf360c;
 color:#ffffff;
@@ -87,15 +91,26 @@ text-align:center;
 margin-top:2px;
 padding: 5px 15px;
 }
+
 button:hover{
 	background-color: #ff9e80;
 	color: black;
 }
+.fa-check-square{
+	color: #f4511e;
+	cursor: pointer;
+}
 
 .fa-trash-alt{
   color: #f4511e;
-  float: right;
+  /* float: right; */
   cursor: pointer;
+}
+/* add jquery animation when icon is hovered */
+.fa-trash-alt :hover,
+.fa-check-square :hover
+{
+	color: #ff9e80;
 }
 .done{
   text-decoration: line-through;

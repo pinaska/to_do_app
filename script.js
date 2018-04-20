@@ -1,11 +1,12 @@
 $(document).ready(function() {
-//adding the item, tbc.
+//JQUERY plus FUNCTIONS
+$("input:text").attr("placeholder", "type new task");
 $('#add-button').on("click", addItem);
 $('ul').on("click", "a", completeItem);
-// $('ul').on("click", "a", undoItem);
 $('ul').on("click", '.fa-trash-alt',deleteItem);
-  // event.preventDefault();
-// add item
+
+
+// ADD ITEM
 function addItem(){
   var inputValue = $('#item-input').val();
   //prevent adding item if input value is < 0 char.
@@ -13,32 +14,10 @@ function addItem(){
     alert("You did not put any task");
   }
   else {
-  $('.my-list').append('<li>' + ' <a href="#" class="complete">[done]</a>' + ' <span>' + inputValue + '</span>' + ' <i class="far fa-trash-alt complete"></i>' + '</li>');
+  $('.my-list').append('<li>' + ' <a href="#" class="complete"><i class="far fa-check-square"></i></a>' + ' <span>' + inputValue + '</span>' + ' <i class="far fa-trash-alt complete"></i>' + '</li>');
   $('#item-input').val('');
   }
 }
-
-// complete item - to "undone" it I need to toggleClass
-function completeItem(){
-  //adding class on span element and icon, when a is clicked, how to make it only span?
-  $(this).siblings('span').toggleClass('done');
-  // $(this).html('[undone]');
-}
-//make [undone][done] again
-// function undoItem(){
-//   $(this).addClass('.undone');
-//     $('.undone').html('[done]');
-// }
-
-// delete item
-function deleteItem(){
-   $(this).parent().remove();
-   //display info right before the last item is removed
-   if ($('ul li').length === 0){
-     alert(" YAY!!! you'r almost done!");
-   }
-  }
-
 //add item with Enter key //src StackOverflow
 $('#item-input').keypress(function (e) {
  var key = e.which;
@@ -49,13 +28,21 @@ $('#item-input').keypress(function (e) {
   }
 });
 
+// COMPLETE ITEM
+function completeItem(){
+  //adding class on span element
+  $(this).siblings('span').toggleClass('done');
+}
 
-
-
-
-
-
-
-
-
+// DELETE ITEM
+function deleteItem(){
+  //once trash icon is clicked, the span text fades out
+$(this).siblings('span').fadeOut('1000', function(){
+  $(this).parent().remove();
+     //display info right before the last item is removed
+  if ($('ul li').length === 0){
+    alert(" YAY!!! you'r almost done!");
+    };
+  });
+}
 });
