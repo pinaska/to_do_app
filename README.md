@@ -3,4 +3,6 @@ lab exercise from Red Academy Spring 2018
 
 ### used
 * jquery
-* css framework ? (bootstrap maybe, I will see.....) 
+* no css framework except Font Awesome Icon. Styling checkbox after codepen pen: https://codepen.io/valerypatorius/pen/oXGMGL
+* styling inspired Google Material Design 
+* planning on deploying it with google Firebase (tbc.)

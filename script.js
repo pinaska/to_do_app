@@ -1,10 +1,13 @@
 $(document).ready(function() {
 //JQUERY plus FUNCTIONS
-$("input:text").attr("placeholder", "type new task");
 $('#add-button').on("click", addItem);
-$('ul').on("click", "a", completeItem);
-$('ul').on("click", '.fa-trash-alt',deleteItem);
-
+//$('li').on("click", "input", completeItem);
+$('li').on("click", 'input', completeItem);
+$('ul').on("click", '.fa-trash-alt', deleteItem);
+//index for checkbox ids
+var index=0;
+//to create the
+addItem();
 
 // ADD ITEM
 function addItem(){
@@ -14,8 +17,11 @@ function addItem(){
     alert("You did not put any task");
   }
   else {
-  $('.my-list').append('<li>' + ' <a href="#" class="complete"><i class="far fa-check-square"></i></a>' + ' <span>' + inputValue + '</span>' + ' <i class="far fa-trash-alt complete"></i>' + '</li>');
+  $('.my-list').append('<li>' + '<a href="#" class="complete"><input type="checkbox" id="to-do-item'+index+'"/><label for ="to-do-item'+index+'">' + inputValue + '</label>' + '</a>' + ' <i class="far fa-trash-alt"></i>' + '</li>');
   $('#item-input').val('');
+  $('.my-list li').on("click", '#to-do-item'+index, completeItem);
+  $("input:text").attr("placeholder", "type new task");
+  ++index;
   }
 }
 //add item with Enter key //src StackOverflow
@@ -31,17 +37,22 @@ $('#item-input').keypress(function (e) {
 // COMPLETE ITEM
 function completeItem(){
   //adding class on span element
-  $(this).siblings('span').toggleClass('done');
+  console.log('completeItem');
+  console.log($(this));
+  $(this).siblings('label').toggleClass('done');
 }
 
 // DELETE ITEM
 function deleteItem(){
   //once trash icon is clicked, the span text fades out
-$(this).siblings('span').fadeOut('1000', function(){
-  $(this).parent().remove();
+  console.log('deleteItem');
+  console.log($(this));
+
+  $(this).siblings('a').children('label').fadeOut('1000', function(){
+  $(this).parent().parent().remove();
      //display info right before the last item is removed
   if ($('ul li').length === 0){
-    alert(" YAY!!! you'r almost done!");
+    alert(" YAY!!! you're almost done!");
     };
   });
 }
